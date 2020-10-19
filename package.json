@@ -1,0 +1,30 @@
+{
+  "name": "jsdoc-generate-snippet",
+  "version": "0.0.1",
+  "description": "A jsdoc plugin to generate components snippets from jsdoc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blusoul/jsdoc-generate-snippet.git"
+  },
+  "author": "blusoul",
+  "keywords": [
+    "jsdoc",
+    "vscode",
+    "jsdoc plugin",
+    "snippet",
+    "component",
+    "Vue Component"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blusoul/jsdoc-generate-snippet/issues"
+  },
+  "homepage": "https://github.com/blusoul/jsdoc-generate-snippet#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6"
+  }
+}
