@@ -6,7 +6,14 @@ const path = require('jsdoc/path');
 const snippetsMap = {};
 const tagsMap = {};
 const attributesMap = {};
-const TYPE_LIST = ['string', 'number', 'boolean', 'array', 'function', 'object'];
+const TYPE_LIST = [
+  'string',
+  'number',
+  'boolean',
+  'array',
+  'function',
+  'object',
+];
 const MD_TYPE_MAP = {
   params: '参数',
   props: '属性',
@@ -26,7 +33,10 @@ function dealSnippetBody({ snippet, name, count, options } = {}) {
   if (typeof snippet === 'string' && snippet) {
     const reg = new RegExp(`(?<=${name}=")[^"]*(?=")`);
     if (reg.test(snippet)) {
-      result = snippet.replace(reg, '${' + count + '|' + options.join(',') + '|}');
+      result = snippet.replace(
+        reg,
+        '${' + count + '|' + options.join(',') + '|}'
+      );
       return [count + 1, result];
     }
   }
@@ -38,12 +48,14 @@ function createParems(type, params = []) {
   if (!(Array.isArray(params) && params.length)) {
     return '';
   }
-  return `| ${type} ${MD_TYPE_MAP[type] || ''} | 类型 | 默认值 | 说明 |\n| :--- | :--- | :----- | :--- |\n${params
+  return `| ${type} ${
+    MD_TYPE_MAP[type] || ''
+  } | 类型 | 默认值 | 说明 |\n| :--- | :--- | :----- | :--- |\n${params
     .map((item) => {
       const { names = [] } = item.type || {};
-      return `| ${item.name} | ${Array.isArray(names) && names.length ? names.join('\\|') : '-'} | ${
-        item.defaultvalue || '-'
-      } | ${item.description} |`;
+      return `| ${item.name} | ${
+        Array.isArray(names) && names.length ? names.join('\\|') : '-'
+      } | ${item.defaultvalue || '-'} | ${item.description} |`;
     })
     .join('\n')}\n\n`;
 }
@@ -103,14 +115,20 @@ function createAttributes(data = {}, params = []) {
 }
 
 /**
- * 
- * @param {string} dir file path 
+ *
+ * @param {string} dir file path
  */
 function createFile({ dir, fileName, data, message } = {}) {
   fs.mkPath(dir);
   const str = path.join(dir, fileName);
   fs.writeFileSync(str, jsonStringify(data));
-  console.log('\033[42;30m DONE \033[40;32m ' + message + '，path: ' + path.join(env.pwd, str) + ' \033[0m');
+  console.log(
+    '\033[42;30m DONE \033[40;32m ' +
+      message +
+      '，path: ' +
+      path.join(env.pwd, str) +
+      ' \033[0m'
+  );
 }
 
 /**
@@ -129,7 +147,7 @@ function dealDescription(str) {
 /**
  * set Vetur snippets config
  * @param {String} dir
- */function configVetur(dir) {
+ */ function configVetur(dir) {
   const packagePath = path.join(env.pwd, 'package.json');
   const packagejson = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
   fs.writeFileSync(
@@ -153,7 +171,8 @@ module.exports = function handleDocsData(arr) {
     return console.warn('has no component or no jsdocs');
   }
   const { files } = arr[arr.length - 1];
-  const { destination = '', isOnlyCodeSnippets = false } = env.conf.snippet || {};
+  const { destination = '', isOnlyCodeSnippets = false } =
+    env.conf.snippet || {};
   arr.forEach((item = {}, index) => {
     const { _isVueDoc, name = '', params = [] } = item;
     const description = dealDescription(item.description);
@@ -191,7 +210,7 @@ module.exports = function handleDocsData(arr) {
   });
 
   const outputDir = destination || './snippets';
-  const dirName = env.pwd.split('/').slice(-1)[0];
+  const dirName = env.pwd.split(/\\|\//).slice(-1)[0];
 
   if (!isOnlyCodeSnippets) {
     createFile({

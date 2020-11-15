@@ -1,0 +1,9 @@
+{
+  "SFieldForm": {
+    "prefix": "SFieldForm",
+    "body": [
+      "<SFieldForm title=\"aaa\" @submit=\"123123\" name=\"SDF\" />"
+    ],
+    "description": "</p></div></div> \n\n\n\n\n<h3 class=\"subsection-title\" style=\"margin-top: 1em\" data-jsdoc-vuejs=\"section-data\">Data</h3>\n<table data-jsdoc-vuejs=\"table-data\">\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Type</th>\n        <th>Default value</th>\n        <th>Description</th>\n    </tr>\n    </thead>\n    <tbody><tr>\n        <td><code>:name</code></td>\n        <td>object</td>\n        <td>-</td>\n        <td>名称</td>\n    </tr></tbody>\n</table>\n\n\n\n<h3 class=\"subsection-title\" style=\"margin-top: 1em\" data-jsdoc-vuejs=\"section-computed\">Computed</h3>\n<table data-jsdoc-vuejs=\"table-computed\">\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Type</th>\n        <th>Description</th>\n    </tr>\n    </thead>\n    <tbody><tr>\n        <td><code>number</code></td>\n        <td>number</td>\n        <td>-</td>\n    </tr></tbody>\n</table>\n\n\n\n\n<h3 class=\"subsection-title\" style=\"margin-top: 1em\" data-jsdoc-vuejs=\"section-event\">Events</h3>\n<table data-jsdoc-vuejs=\"table-event\">\n    <thead>\n    <tr>\n        <th>Name</th>\n        <th>Payload Type</th>\n        <th>Description</th>\n    </tr>\n    </thead>\n    <tbody><tr>\n        <td><code>@submit</code></td>\n        <td>function</td>\n        <td>事件</td>\n    </tr></tbody>\n</table>\n\n\n<div class=\"container-overview\"><div><p> \n"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "jsdoc-generate-snippet-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "doc": "jsdoc -d ./doc -c ./jsdoc.config.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+    "jsdoc-vuejs": "^3.0.9",
+    "vue-template-compiler": "^2.5.21"
+  }
+}

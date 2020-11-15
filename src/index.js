@@ -9,6 +9,7 @@ exports.handlers = {
       .filter((doc) => {
         return !doc.undocumented;
       });
+    console.log(docs);
     handleDocsData(docs);
   },
 };

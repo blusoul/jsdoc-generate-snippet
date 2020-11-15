@@ -1,0 +1,22 @@
+{
+  "recurseDepth": 10,
+  "plugins": ["node_modules/jsdoc-vuejs", "./index.js"],
+  "source": {
+    "include": ["temp/components"],
+    "includePattern": "\\.vue$"
+  },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc"]
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "template": "templates/default",
+    "encoding": "utf8",
+    "destination": "./out/",
+    "recurse": true
+  }
+}
